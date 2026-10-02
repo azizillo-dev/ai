@@ -38,12 +38,20 @@ export class AIError extends Error {
 function providers(): Provider[] {
   const list: Provider[] = [];
   if (process.env.GEMINI_API_KEY) {
-    list.push({
-      name: "gemini",
-      url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-      key: process.env.GEMINI_API_KEY,
-      model: process.env.GEMINI_MODEL || "gemini-flash-latest",
-    });
+    // Gemini ba'zan "high demand" (503) qaytaradi — shu kalit bilan bir nechta modelni navbat bilan sinaymiz.
+    // GEMINI_MODEL vergul bilan ajratilgan ro'yxat bo'lishi mumkin.
+    const models = (process.env.GEMINI_MODEL || "gemini-flash-latest,gemini-flash-lite-latest,gemini-3.5-flash,gemini-3.8-flash")
+      .split(",")
+      .map((m) => m.trim())
+      .filter(Boolean);
+    for (const model of models) {
+      list.push({
+        name: "gemini",
+        url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+        key: process.env.GEMINI_API_KEY,
+        model,
+      });
+    }
   }
   if (process.env.GROQ_API_KEY) {
     list.push({
@@ -64,11 +72,22 @@ function providers(): Provider[] {
   if (list.length === 0) {
     throw new AIError("AI kaliti sozlanmagan. GEMINI_API_KEY, GROQ_API_KEY yoki DEEPSEEK_API_KEY ni qo‘shing.", 500);
   }
-  // AI_PRIMARY ko'rsatilgan bo'lsa — o'sha provayder birinchi ishlatiladi
+  // AI_PRIMARY ko'rsatilgan bo'lsa — o'sha provayder birinchi ishlatiladi (sort barqaror)
   const primary = process.env.AI_PRIMARY as ProviderName | undefined;
-  const idx = list.findIndex((p) => p.name === primary);
-  if (idx > 0) list.unshift(...list.splice(idx, 1));
-  return list;
+  if (primary) list.sort((a, b) => Number(b.name === primary) - Number(a.name === primary));
+
+  // Yaqinda xato bergan provayderlarni oxiriga surish (hammasi "dam olayotgan" bo'lsa ham urinib ko'ramiz)
+  const now = Date.now();
+  const resting = (p: Provider) => (cooldown.get(cooldownKey(p)) ?? 0) > now;
+  return [...list.filter((p) => !resting(p)), ...list.filter(resting)];
+}
+
+/** Xato bergan provayder/modelni vaqtincha chetga qo'yish: kalit/balans xatosi — 10 daqiqa, band — 30 soniya. */
+const cooldown = new Map<string, number>();
+const cooldownKey = (p: Provider) => `${p.name}:${p.model}`;
+function rest(p: Provider, status: number) {
+  const ms = status === 401 || status === 402 || status === 403 ? 10 * 60_000 : status === 429 || status >= 500 ? 30_000 : 0;
+  if (ms) cooldown.set(cooldownKey(p), Date.now() + ms);
 }
 
 function buildBody(p: Provider, messages: ChatMessage[], opts: Options, stream: boolean, extras: boolean) {
@@ -126,28 +145,35 @@ async function callProvider(p: Provider, messages: ChatMessage[], opts: Options,
 async function withFallback(
   messages: ChatMessage[],
   opts: Options,
-  stream: boolean
+  stream: boolean,
+  skip: Set<string> = new Set()
 ): Promise<{ res: Response; provider: Provider }> {
   const errors: string[] = [];
   for (const p of providers()) {
+    if (skip.has(cooldownKey(p))) continue;
     if (opts.deadline && opts.deadline - Date.now() < 5_000) {
       errors.push(`${p.name}: vaqt tugadi`);
       break;
     }
     try {
       const res = await callProvider(p, messages, opts, stream);
-      if (res.ok) return { res, provider: p };
-      const text = (await res.text()).slice(0, 300);
-      errors.push(`${p.name}: ${res.status} ${text}`);
+      if (res.ok) {
+        cooldown.delete(cooldownKey(p));
+        return { res, provider: p };
+      }
+      rest(p, res.status);
+      const text = (await res.text()).replace(/\s+/g, " ").slice(0, 200);
+      errors.push(`${p.name}/${p.model}: ${res.status} ${text}`);
     } catch (err) {
-      errors.push(`${p.name}: ${err instanceof Error ? err.message : String(err)}`);
+      rest(p, 503);
+      errors.push(`${p.name}/${p.model}: ${err instanceof Error ? err.message : String(err)}`);
     }
   }
   console.error("[ai] barcha provayderlar xato berdi:", errors.join(" | "));
-  const limited = errors.some((e) => / 429 /.test(e));
+  const limited = errors.some((e) => /: (429|503) /.test(e));
   throw new AIError(
     limited
-      ? "AI hozir juda band (limit). Bir daqiqadan so‘ng qayta urinib ko‘ring."
+      ? "AI hozir juda band. Bir daqiqadan so‘ng qayta urinib ko‘ring."
       : "AI xizmatiga ulanib bo‘lmadi. Birozdan so‘ng qayta urinib ko‘ring."
   );
 }
@@ -199,56 +225,135 @@ export async function completeJSON<T>(
 
 /**
  * Oqimli (streaming) javob: faqat matn bo'laklarini qaytaruvchi ReadableStream.
- * `onDone` — to'liq matn bilan oxirida chaqiriladi (bazaga saqlash uchun).
+ * - Birinchi ulanish muvaffaqiyatsiz bo'lsa, AIError tashlanadi (route 503 JSON qaytaradi).
+ * - Javob o'rtada uzilsa (Gemini "high demand" xatosini oqim ichida yuboradi yoki ulanish
+ *   jim qoladi), keyingi provayder/model to'xtagan joydan davom ettiradi.
+ * - `onDone` — to'liq matn bilan oxirida chaqiriladi (bazaga saqlash uchun).
  */
+const IDLE_MS = 30_000;
+const CONTINUE_PROMPT =
+  "Oldingi javobing texnik sabab bilan uzilib qoldi. Aynan to‘xtagan joyingdan davom ettir: takrorlama, kirish so‘zi yozma.";
+
 export async function stream(
   messages: ChatMessage[],
   opts: Options = {},
   onDone?: (full: string) => Promise<void> | void
 ): Promise<ReadableStream<Uint8Array>> {
-  const { res } = await withFallback(messages, opts, true);
-  if (!res.body) throw new AIError("AI javob oqimi bo‘sh.");
+  const used = new Set<string>();
+  const first = await withFallback(messages, opts, true);
+  used.add(cooldownKey(first.provider));
 
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder();
   const encoder = new TextEncoder();
-  let buffer = "";
   let full = "";
+  let current: ReadableStreamDefaultReader<Uint8Array> | null = null;
 
-  return new ReadableStream<Uint8Array>({
-    async pull(controller) {
+  /** Bitta upstream oqimini o'qiydi. true — oxirigacha to'g'ri yetib keldi. */
+  async function pump(res: Response, emit: (piece: string) => void): Promise<boolean> {
+    if (!res.body) return false;
+    const reader = res.body.getReader();
+    current = reader;
+    const decoder = new TextDecoder();
+    let buffer = "";
+    let finished = false;
+    let failed = false;
+
+    const handleLine = (line: string) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith(":")) return;
+      if (!trimmed.startsWith("data:")) {
+        // Gemini oqim o'rtasida xatoni oddiy JSON ko'rinishida yuboradi
+        if (/"error"|"code"\s*:\s*5\d\d|UNAVAILABLE/.test(trimmed)) failed = true;
+        return;
+      }
+      const payload = trimmed.slice(5).trim();
+      if (payload === "[DONE]") {
+        finished = true;
+        return;
+      }
       try {
-        const { done, value } = await reader.read();
-        if (done) {
-          if (onDone && full.trim()) await onDone(full.trim());
-          controller.close();
-          return;
+        const json = JSON.parse(payload) as {
+          error?: unknown;
+          choices?: { delta?: { content?: string }; finish_reason?: string | null }[];
+        };
+        if (json.error) failed = true;
+        const choice = json.choices?.[0];
+        const piece = choice?.delta?.content;
+        if (piece) emit(piece);
+        if (choice?.finish_reason) finished = true;
+      } catch {
+        /* to'liq bo'lmagan qator — e'tiborsiz */
+      }
+    };
+
+    try {
+      for (;;) {
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        const idle = new Promise<"idle">((r) => (timer = setTimeout(() => r("idle"), IDLE_MS)));
+        const result = await Promise.race([reader.read(), idle]);
+        clearTimeout(timer);
+        if (result === "idle") {
+          reader.cancel().catch(() => {});
+          return false;
         }
-        buffer += decoder.decode(value, { stream: true });
+        if (result.done) break;
+        buffer += decoder.decode(result.value, { stream: true });
         const lines = buffer.split("\n");
         buffer = lines.pop() ?? "";
-        for (const line of lines) {
-          const trimmed = line.trim();
-          if (!trimmed.startsWith("data:")) continue;
-          const payload = trimmed.slice(5).trim();
-          if (payload === "[DONE]") continue;
+        lines.forEach(handleLine);
+      }
+      handleLine(buffer);
+    } catch {
+      return false;
+    } finally {
+      current = null;
+    }
+    return finished && !failed;
+  }
+
+  return new ReadableStream<Uint8Array>({
+    async start(controller) {
+      const emit = (piece: string) => {
+        full += piece;
+        controller.enqueue(encoder.encode(piece));
+      };
+      let res: Response | null = first.res;
+      let provider = first.provider;
+
+      try {
+        for (let attempt = 0; res && attempt < 4; attempt++) {
+          const ok = await pump(res, emit);
+          if (ok) break;
+          rest(provider, 503);
+          console.warn(`[ai] oqim uzildi (${provider.name}/${provider.model}), davom ettirilmoqda`);
+
+          // Keyingi provayder: bo'sh bo'lsa — boshidan, aks holda — to'xtagan joydan
+          const nextMessages: ChatMessage[] = full.trim()
+            ? [...messages, { role: "assistant", content: full }, { role: "user", content: CONTINUE_PROMPT }]
+            : messages;
           try {
-            const json = JSON.parse(payload) as { choices?: { delta?: { content?: string } }[] };
-            const piece = json.choices?.[0]?.delta?.content;
-            if (piece) {
-              full += piece;
-              controller.enqueue(encoder.encode(piece));
-            }
+            const next = await withFallback(nextMessages, opts, true, used);
+            used.add(cooldownKey(next.provider));
+            res = next.res;
+            provider = next.provider;
+            if (full.trim() && !/\s$/.test(full)) emit(" ");
           } catch {
-            /* to'liq bo'lmagan qator — e'tiborsiz */
+            res = null;
+            emit(
+              full.trim()
+                ? "\n\n_(Javob uzilib qoldi — AI hozir band. Birozdan so‘ng qayta so‘rang.)_"
+                : "AI hozir juda band. Bir daqiqadan so‘ng qayta urinib ko‘ring."
+            );
+            full = full.trim() ? full : "";
           }
         }
+        if (onDone && full.trim()) await onDone(full.trim());
+        controller.close();
       } catch (err) {
         controller.error(err);
       }
     },
     cancel() {
-      reader.cancel().catch(() => {});
+      (current as ReadableStreamDefaultReader<Uint8Array> | null)?.cancel().catch(() => {});
     },
   });
 }

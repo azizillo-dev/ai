@@ -5,7 +5,7 @@ import { completeJSON } from "@/lib/ai";
 import { FALLBACK_QUESTIONS, questionsPrompt, toPublic, validateQuestions, type Question } from "@/lib/assessment";
 import { fail, handleError } from "@/lib/http";
 
-export const maxDuration = 60;
+export const maxDuration = 90;
 
 const DAILY_LIMIT = 6;
 
@@ -28,8 +28,8 @@ export async function POST() {
       questions = await completeJSON(questionsPrompt(user), validateQuestions, {
         temperature: 0.9,
         maxTokens: 6000,
-        timeoutMs: 35_000,
-        deadline: Date.now() + 45_000,
+        timeoutMs: 40_000,
+        deadline: Date.now() + 80_000,
       });
     } catch (err) {
       // AI ishlamasa ham test to'xtab qolmasin — tayyor savollar bilan davom etamiz

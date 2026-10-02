@@ -60,7 +60,7 @@ export function questionsPrompt(u: User): ChatMessage[] {
 Vazifa: foydalanuvchi profiliga moslashtirilgan 10 ta diagnostika savolini tuz.
 
 Talablar:
-- Til: faqat o‘zbek tili (lotin yozuvi), sodda va samimiy, yoshiga mos.
+- Til: faqat o‘zbek tili (lotin yozuvi), sodda va samimiy, yoshiga mos. Foydalanuvchiga «siz» deb murojaat qil.
 - Aynan 10 ta savol, har birida aynan 4 ta variant. Variantlar qisqa (1 jumla), bir-biridan aniq farqli.
 - Savollar taqsimoti:
   * 2 ta "qiziqish" — qaysi turdagi ishlar zavq beradi
@@ -241,7 +241,7 @@ export function analysisPrompt(
 Foydalanuvchi profili va diagnostika javoblarini chuqur tahlil qilib, halol va shaxsiy xulosa ber.
 
 Qoidalar:
-- Til: o‘zbek (lotin), samimiy, ammo professional. Emoji ishlatma. Mubolag‘a va bo‘sh maqtovsiz.
+- Til: o‘zbek (lotin), samimiy, ammo professional, «siz» deb murojaat qil. Emoji ishlatma. Mubolag‘a va bo‘sh maqtovsiz.
 - Xulosalar AYNAN berilgan javoblarga asoslansin: "why" va "summary" ichida qaysi javoblar shu xulosaga olib kelganini aniq ayt.
 - Mantiq natijasi: ${logic.correct}/${logic.total}. Uni hisobga ol, lekin bitta xato uchun yo‘nalishni rad etma.
 - "directions": eng mos 3 ta yo‘nalish, faqat quyidagi katalog id laridan (id aynan shunday yozilsin):
