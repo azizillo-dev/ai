@@ -1,0 +1,1046 @@
+[
+ {
+  "id": "frontend",
+  "category": "dasturlash",
+  "title": "Frontend Dasturlash",
+  "short_desc": "Veb-sayt va ilovalarning foydalanuvchi ko'radigan qismini yaratish.",
+  "what_is": "Frontend dasturlash — bu foydalanuvchi brauzerda ko'radigan barcha vizual elementlar, tugmalar, shakllar, animatsiyalar va dizaynni jonlantiruvchi sohadir. Siz yozgan kod orqali foydalanuvchi sayt bilan qulay muloqot qiladi.",
+  "applications": [
+   "Online do'konlar (Amazon, Uzum Market) interfeysi",
+   "Ijtimoiy tarmoqlar (Instagram, Telegram Web) veb versiyasi",
+   "Bank va to'lov tizimlari shaxsiy kabinetlari",
+   "Ta'lim platformalari (Coursera, Khan Academy) interaktiv darslari",
+   "Kundalik hayot: chipta olish, taom buyurtma qilish saytlari"
+  ],
+  "what_they_do": "Figma dizaynlarini toza HTML/CSS/JavaScript kodiga aylantiradi, saytning barcha telefon va kompyuterlarda chiroyli ochilishini (responsive) ta'minlaydi, serverdan ma'lumotlarni olib ekranda aks ettiradi.",
+  "what_to_learn": [
+   "1-bosqich: HTML5 & Semantik tuzilma",
+   "2-bosqich: CSS3, Flexbox, Grid & Animatsiyalar",
+   "3-bosqich: JavaScript (ES6+), DOM bilan ishlash, Asinxronlik (Fetch/API)",
+   "4-bosqich: Git & GitHub bilan jamoaviy ishlash",
+   "5-bosqich: Zamonaviy Framework (React.js, Vue yoki Next.js)",
+   "6-bosqich: State Management (Redux/Zustand) & TypeScript",
+   "7-bosqich: Real Portfolio loyihalar & CV tayyorlash"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Shaxsiy Portfolio veb-sayti va Interaktiv Kalkulyator"
+   },
+   {
+    "level": "O'rta",
+    "title": "Real vaqtda ob-havo ko'rsatuvchi API ilova va To-do Task Manager"
+   },
+   {
+    "level": "Yuqori",
+    "title": "To'liq funksional E-commerce (savatcha, filtr va to'lov bilan)"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Frontend Developer",
+    "salary": "$400 - $800 / oy"
+   },
+   {
+    "role": "Middle React Developer",
+    "salary": "$1,200 - $2,500 / oy"
+   },
+   {
+    "role": "Senior UI Engineer / Tech Lead",
+    "salary": "$3,000 - $5,500 / oy"
+   }
+  ]
+ },
+ {
+  "id": "backend",
+  "category": "dasturlash",
+  "title": "Backend Dasturlash",
+  "short_desc": "Sayt va ilovalarning 'miyasi', ma'lumotlar bazasi va server mantig'i.",
+  "what_is": "Backend — bu veb-ilovalarning parda ortidagi qismi. Foydalanuvchilar uni ko'rmaydi, lekin aynan backend barcha ma'lumotlarni saqlaydi, xavfsizlikni ta'minlaydi, to'lovlarni o'tkazadi va biznes mantiqni boshqaradi.",
+  "applications": [
+   "Bank tranzaksiyalari va xavfsiz to'lovlar",
+   "Katta ma'lumotlar bazasini boshqarish",
+   "Avtorizatsiya, login va shaxsiy ma'lumotlar xavfsizligi",
+   "Mobil ilovalarning API serverlari",
+   "Kuryerlik va GPS kuzatuv tizimlari algoritmlari"
+  ],
+  "what_they_do": "Server arxitekturasini loyihalaydi, API (REST/GraphQL) yozadi, ma'lumotlar bazasi (PostgreSQL, MongoDB) bilan ishlaydi, tizimning tezkor va buzilmasdan ishlashini ta'minlaydi.",
+  "what_to_learn": [
+   "1-bosqich: Biror dasturlash tili (Python, Node.js, Java yoki Go)",
+   "2-bosqich: Ma'lumotlar bazalari (SQL, PostgreSQL, NoSQL)",
+   "3-bosqich: RESTful API va xavfsizlik (JWT, OAuth)",
+   "4-bosqich: Keshlashtirish (Redis) & Asinxron vazifalar (Celery/RabbitMQ)",
+   "5-bosqich: Docker, Serverga joylash (CI/CD, Linux)",
+   "6-bosqich: Microservices arxitekturasi va yuklamaga chidamlilik"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Foydalanuvchilarni ro'yxatdan o'tkazuvchi REST API"
+   },
+   {
+    "level": "O'rta",
+    "title": "Telegram orqali buyurtma qabul qiluvchi avtomatlashtirilgan backend"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Millionlab foydalanuvchiga mo'ljallangan Bank to'lov shlyuzi mikroxizmati"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Backend Developer",
+    "salary": "$500 - $900 / oy"
+   },
+   {
+    "role": "Middle Backend Engineer (Python/Java/Node)",
+    "salary": "$1,400 - $2,800 / oy"
+   },
+   {
+    "role": "Lead Backend / Systems Architect",
+    "salary": "$3,500 - $6,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "fullstack",
+  "category": "dasturlash",
+  "title": "Full Stack Dasturlash",
+  "short_desc": "Frontend va Backendni birdek mukammal boshqara oladigan universal dasturchi.",
+  "what_is": "Full Stack dasturchi — loyihaning noldan boshlab to to'liq ishga tushishigacha bo'lgan barcha bosqichlarini (vizual qismdan server va bazagacha) mustaqil qura oladigan universal mutaxassisdir.",
+  "applications": [
+   "Startap mahsulotlarni tezkor ishga tushirish (MVP)",
+   "SaaS bulutli dasturlar",
+   "Universal veb-platformalar"
+  ],
+  "what_they_do": "Foydalanuvchi interfeysini ham, server mantiqini ham o'zi yozadi. Yangi startaplar va mahsulot jamoalarida juda qadrlanadi.",
+  "what_to_learn": [
+   "HTML/CSS/JS",
+   "React/Next.js",
+   "Node.js yoki Python",
+   "PostgreSQL/MongoDB",
+   "Docker & Vercel/AWS"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Shaxsiy blog va maqolalar platformasi"
+   },
+   {
+    "level": "O'rta",
+    "title": "Kichik biznes uchun CRM boshqaruv tizimi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Real-time AI Chatbot va to'lov integratsiyali SaaS platforma"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Full Stack Dev",
+    "salary": "$600 - $1,000 / oy"
+   },
+   {
+    "role": "Middle Full Stack Engineer",
+    "salary": "$1,600 - $3,200 / oy"
+   }
+  ]
+ },
+ {
+  "id": "python",
+  "category": "dasturlash",
+  "title": "Python Dasturlash",
+  "short_desc": "O'rganish oson, imkoniyatlari cheksiz bo'lgan dunyoning 1-raqamli dasturlash tili.",
+  "what_is": "Python — o'qilishi ingliz tiliga juda yaqin, sintaksisi toza va sodda bo'lgan eng mashhur til. U veb dasturlash, sun'iy intellekt, ma'lumotlar tahlili va avtomatlashtirishda yetakchidir.",
+  "applications": [
+   "Sun'iy intellekt va ChatGPT kabi modellar",
+   "Django/FastAPI veb-saytlar",
+   "Telegram botlar",
+   "Ilmiy tadqiqotlar"
+  ],
+  "what_they_do": "Murakkab algoritmlarni bir necha qator kod bilan yechadi, ma'lumotlarni tahlil qiladi va server dasturlarini tuzadi.",
+  "what_to_learn": [
+   "Python asoslari",
+   "OOP (Obyektga yo'naltirilgan dasturlash)",
+   "FastAPI / Django",
+   "SQLAlchemy",
+   "AI kutubxonalari"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Aqlli Telegram bot va Valyuta kursi konverteri"
+   },
+   {
+    "level": "O'rta",
+    "title": "Web Scraping va yangiliklar agregatori"
+   },
+   {
+    "level": "Yuqori",
+    "title": "FastAPI asosidagi Machine Learning modelini serverga joylash"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Python Dev",
+    "salary": "$500 - $900 / oy"
+   },
+   {
+    "role": "Python/FastAPI Specialist",
+    "salary": "$1,300 - $2,600 / oy"
+   }
+  ]
+ },
+ {
+  "id": "java",
+  "category": "dasturlash",
+  "title": "Java Dasturlash",
+  "short_desc": "Katta banklar, korporativ tizimlar va Android ilovalarining poydevori.",
+  "what_is": "Java — 'Bir marta yoz, hamma joyda ishlat' tamoyiliga ega, barqarorlik va yuqori xavfsizlik talab qilinadigan ulkan tizimlarning asosiy tili.",
+  "applications": [
+   "Banklar (Markaziy bank, xalqaro banklar)",
+   "Android mobil ilovalari",
+   "Katta sanoat korxonalari dasturlari"
+  ],
+  "what_they_do": "Katta hajmdagi ma'lumotlar va millionlab tranzaksiyalarga chidamli korporativ tizimlarni (Spring Boot) loyihalaydi.",
+  "what_to_learn": [
+   "Java Core & OOP",
+   "Kollektsiyalar & Multithreading",
+   "Spring Boot & Spring Security",
+   "Hibernate / JPA",
+   "PostgreSQL"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Konsol bank hisob-kitob dasturi"
+   },
+   {
+    "level": "O'rta",
+    "title": "Spring Boot orqali Talabalar boshqaruv portali"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Bank kartalari va tranzaksiyalar mikroservis platformasi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Java Developer",
+    "salary": "$600 - $1,100 / oy"
+   },
+   {
+    "role": "Middle Spring Engineer",
+    "salary": "$1,600 - $3,200 / oy"
+   }
+  ]
+ },
+ {
+  "id": "cpp",
+  "category": "dasturlash",
+  "title": "C++ Dasturlash",
+  "short_desc": "Maksimal tezlik, operatsion tizimlar, o'yin dvigatellari va robototexnika tili.",
+  "what_is": "C++ — kompyuter xotirasi bilan to'g'ridan-to'g'ri ishlaydigan, eng yuqori hisoblash tezligiga ega kuchli til. Kiberxavfsizlik, o'yinlar (Unreal Engine) va avtomobil dasturlarida ishlatiladi.",
+  "applications": [
+   "3D o'yinlar va grafik dvigatellar",
+   "Tibbiy uskunalar mikrokontrollerlari",
+   "Kosmik kemalar va avtopilotlar"
+  ],
+  "what_they_do": "Tezkor algoritmlar, operatsion tizim drayverlari va mikrosxemalar uchun dasturiy ta'minot yozadi.",
+  "what_to_learn": [
+   "C++ sintaksisi va xotira boshqaruvi (Pointers)",
+   "OOP & Shablonlar (Templates)",
+   "STL kutubxonasi",
+   "Algoritmlar va ma'lumotlar tuzilmasi"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Murakkab kalkulyator va matnli labirint o'yini"
+   },
+   {
+    "level": "O'rta",
+    "title": "Fayllarni shifrlash va arxivlash dasturi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "2D o'yin dvigateli yoki fizik hisoblash simulyatsiyasi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior C++ Engineer",
+    "salary": "$600 - $1,200 / oy"
+   },
+   {
+    "role": "Embedded / Game C++ Developer",
+    "salary": "$1,800 - $3,800 / oy"
+   }
+  ]
+ },
+ {
+  "id": "mobile",
+  "category": "dasturlash",
+  "title": "Mobile Development (iOS & Android)",
+  "short_desc": "Smartfonlar uchun zamonaviy va qulay mobil ilovalar yaratish.",
+  "what_is": "Mobile Development — Flutter, Swift (iOS) yoki Kotlin (Android) yordamida har bir odamning cho'ntagidagi smartfonda ishlaydigan ilovalar yaratish kasbi.",
+  "applications": [
+   "Payme, Click kabi to'lov ilovalari",
+   "Fitnes va sog'lom hayot trekerlari",
+   "Mobil o'yinlar va ijtimoiy tarmoqlar"
+  ],
+  "what_they_do": "Smartfon ekraniga mos, sensor va kameralar bilan ishlaydigan tezkor ilovalar yaratadi va ularni App Store va Google Play'ga chiqaradi.",
+  "what_to_learn": [
+   "Dart & Flutter (yoki Swift / Kotlin)",
+   "Mobil UI vidjetlari",
+   "Lokal baza (Hive/SQLite)",
+   "Push-xabarnomalar & REST API"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Shaxsiy xarajatlar va byudjet treker ilovasi"
+   },
+   {
+    "level": "O'rta",
+    "title": "Taom yetkazib berish mobil ilovasi interfeysi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Chat, video qo'ng'iroq va geolocationli to'liq mobil ijtimoiy ilova"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Flutter/Mobile Dev",
+    "salary": "$500 - $900 / oy"
+   },
+   {
+    "role": "Middle iOS/Android Engineer",
+    "salary": "$1,500 - $3,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "ai",
+  "category": "ai",
+  "title": "Artificial Intelligence (AI)",
+  "short_desc": "Inson kabi fikrlaydigan, tushunadigan va qaror qabul qiladigan tizimlar.",
+  "what_is": "Sun'iy intellekt (AI) — kompyuterlarga inson intellektiga xos xususiyatlarni: ko'rish, eshitish, tilni tushunish, mantiqiy xulosa chiqarish va o'rganishni o'rgatuvchi fan va texnologiya.",
+  "applications": [
+   "Tibbiyot: Rentgen va MRT tasvirlaridan kasallikni erta aniqlash",
+   "Ta'lim: Har bir talaba uchun individual AI repetitor",
+   "Bank: Firibgarlik (fraud) holatlarini soniya ichida to'xtatish",
+   "Transport: Tesla va Waymo haydovchisiz avtomobillari",
+   "Robototexnika: Aqlli fabrikalarda avtomatlashtirilgan robotlar",
+   "Biznes: Savdoni bashorat qilish va mijozlarga mos tavsiyalar",
+   "Kundalik hayot: ChatGPT, Siri, ovozli tarjimonlar va tavsiya tizimlari"
+  ],
+  "what_they_do": "Neyron to'rlarini o'qitadi, kompyuter ko'rishi (Computer Vision) va tabiiy tilni qayta ishlash (NLP) modellarini yaratadi, ularni real hayotga tatbiq qiladi.",
+  "what_to_learn": [
+   "1-bosqich: Python dasturlash & Matematika (Chiziqli algebra, Ehtimollar nazariyasi)",
+   "2-bosqich: Ma'lumotlarni tahlil qilish (NumPy, Pandas, Matplotlib)",
+   "3-bosqich: Machine Learning algoritmlari (Scikit-Learn)",
+   "4-bosqich: Deep Learning & Neyron to'rlari (PyTorch yoki TensorFlow)",
+   "5-bosqich: Natural Language Processing (NLP) & Computer Vision (OpenCV)",
+   "6-bosqich: Generative AI, LLM (ChatGPT API, Hugging Face)",
+   "7-bosqich: Modelni amaliyotga joylash (MLOps, Docker, FastAPI)"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Uy narxlarini bashorat qiluvchi ML modeli"
+   },
+   {
+    "level": "O'rta",
+    "title": "Tasvirdagi yuzlar va his-tuyg'ularni aniqlovchi kompyuter ko'rishi dasturi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "O'zbek tili uchun shaxsiy AI yordamchi va ChatGPT analogi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "AI / ML Junior Engineer",
+    "salary": "$700 - $1,200 / oy"
+   },
+   {
+    "role": "Machine Learning Engineer",
+    "salary": "$1,800 - $3,500 / oy"
+   },
+   {
+    "role": "AI Research Scientist",
+    "salary": "$3,500 - $7,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "ml",
+  "category": "ai",
+  "title": "Machine Learning (Mashinali o'rganish)",
+  "short_desc": "Kompyuterga qoidalarni qo'lda yozmasdan, ma'lumotlar orqali o'rganishni o'rgatish.",
+  "what_is": "Machine Learning — bu kompyuterga tajriba (katta ma'lumotlar) orqali xatolardan saboq olib, o'z qarorlarini yaxshilab borish qobiliyatini beruvchi AI yo'nalishidir.",
+  "applications": [
+   "Spam xatlarni aniqlash",
+   "Kredit berish riskini hisoblash",
+   "Musiqa va film tavsiya qilish (Spotify, Netflix)"
+  ],
+  "what_they_do": "Statistik modellarni ma'lumotlar ustida o'qitadi, ularning aniqligini tekshiradi va biznes muammolarini yechadi.",
+  "what_to_learn": [
+   "Python",
+   "Statistika",
+   "Scikit-Learn",
+   "Feature Engineering",
+   "Gradient Boosting"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Mijozlarning bankdan ketishini oldindan bashorat qilish"
+   },
+   {
+    "level": "O'rta",
+    "title": "Tibbiy tahlillar asosida diabet xavfini aniqlash"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Katta elektron tijorat platformasi uchun tavsiya etish algoritmi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior ML Engineer",
+    "salary": "$650 - $1,100 / oy"
+   },
+   {
+    "role": "Senior ML Specialist",
+    "salary": "$2,000 - $4,200 / oy"
+   }
+  ]
+ },
+ {
+  "id": "deeplearning",
+  "category": "ai",
+  "title": "Deep Learning (Chuqur o'rganish)",
+  "short_desc": "Inson miyasi neyronlari asosida qurilgan ko'p qatlamli sun'iy neyron tarmoqlari.",
+  "what_is": "Deep Learning — inson miyasidagi neyronlar kabi bir-biri bilan bog'langan yuzlab qatlamli tarmoqlar orqali murakkab tasvir, ovoz va matn ma'lumotlarini idrok etuvchi texnologiya.",
+  "applications": [
+   "Ovozni tanish va klonlash",
+   "Face ID yuzni tanish tizimlari",
+   "Avtopilot avtomobillar"
+  ],
+  "what_they_do": "CNN, RNN, Transformer arxitekturalarini loyihalaydi va GPU serverlarda katta neyron to'rlarini o'qitadi.",
+  "what_to_learn": [
+   "PyTorch / TensorFlow",
+   "CNN & Computer Vision",
+   "Transformers & Attention Mechanism",
+   "CUDA & GPU optimization"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Qo'lyozma raqamlarni 99% aniqlikda tanuvchi neyron to'r"
+   },
+   {
+    "level": "O'rta",
+    "title": "Rentgen tasvirlaridan pnevmoniyani aniqlovchi model"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Tasvirlarni matn orqali generatsiya qiluvchi Diffusion model"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Deep Learning Engineer",
+    "salary": "$1,800 - $4,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "genai",
+  "category": "ai",
+  "title": "Generative AI & LLMs",
+  "short_desc": "Matn, rasm, video va kod yarata oladigan yangi avlod generativ intellekti.",
+  "what_is": "Generative AI — ChatGPT, Midjourney va Claude kabi yangi kontent yarata oladigan, ijodiy va matnli masalalarni inson darajasida bajara oladigan zamonaviy sun'iy intellekt sohasi.",
+  "applications": [
+   "Avtomatik maqolalar, kod va dizayn generatsiyasi",
+   "Aqlli korporativ botlar",
+   "Ijodiy multimedia"
+  ],
+  "what_they_do": "Katta til modellarini (LLM) biznes ma'lumotlari bilan sozlaydi (Fine-tuning, RAG), Prompt Engineering va AI agentlar tuzadi.",
+  "what_to_learn": [
+   "OpenAI & Anthropic API",
+   "LangChain & LlamaIndex",
+   "Vector Databases (Pinecone/Chroma)",
+   "RAG arxitekturasi"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Kompaniya PDF hujjatlari bo'yicha savolga javob beruvchi bot"
+   },
+   {
+    "level": "O'rta",
+    "title": "O'zbek tili uchun shaxsiy AI huquqshunos yoki AI shifokor maslahatchisi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Mustaqil vazifalarni bajaruvchi ko'p agentli Autonomous AI tizimi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "GenAI / LLM Application Engineer",
+    "salary": "$2,000 - $4,500 / oy"
+   }
+  ]
+ },
+ {
+  "id": "data_analytics",
+  "category": "data",
+  "title": "Data Analytics (Ma'lumotlar tahlili)",
+  "short_desc": "Raqamlar ortidagi haqiqatni topib, biznesga to'g'ri yo'l ko'rsatish.",
+  "what_is": "Data Analytics — xom ma'lumotlarni tozalash, tahlil qilish va ularni tushunarli grafiklar (dashboardlar) orqali kompaniya rahbarlariga to'g'ri qaror qabul qilishda taqdim etish san'ati.",
+  "applications": [
+   "Kompaniya sotuvlarini oshirish",
+   "Mijozlar nimani xohlashini bilish",
+   "Bozor tendensiyalarini aniqlash"
+  ],
+  "what_they_do": "SQL orqali ma'lumotlar bazasidan hisobotlar oladi, Excel va Power BI/Tableau'da jonli grafiklar chizadi.",
+  "what_to_learn": [
+   "SQL chuqur bilim",
+   "Excel & Google Sheets (VLOOKUP, Pivot)",
+   "Power BI yoki Tableau",
+   "Python (Pandas, Seaborn)"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Supermarket sotuvlari tahlili va interaktiv Power BI hisoboti"
+   },
+   {
+    "level": "O'rta",
+    "title": "Mijozlar xatti-harakati va mahsulot sotilishini tahlil qiluvchi SQL loyiha"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Kompaniyaning 1 yillik daromad va risklarini prognozlovchi to'liq tahliliy dashboard"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Data Analyst",
+    "salary": "$500 - $900 / oy"
+   },
+   {
+    "role": "Senior BI Analyst",
+    "salary": "$1,400 - $2,800 / oy"
+   }
+  ]
+ },
+ {
+  "id": "data_science",
+  "category": "data",
+  "title": "Data Science (Ma'lumotlar ilmi)",
+  "short_desc": "Matematika, dasturlash va biznes uyg'unligidagi eng yuqori daromadli kasb.",
+  "what_is": "Data Science — katta hajmdagi tartibsiz ma'lumotlardan matematik modellar va sun'iy intellekt yordamida chuqur xulosalar va kelajak bashoratlarini chiqaruvchi fan.",
+  "applications": [
+   "Geni aniqlash va biotexnologiya",
+   "Moliyaviy bozorlar tahlili",
+   "Sun'iy intellekt modellarini oziqlantirish"
+  ],
+  "what_they_do": "Gipotezalar tuzadi, murakkab tajribalar o'tkazadi, A/B testlar qiladi va AI modellarini biznesga kiritadi.",
+  "what_to_learn": [
+   "Python & R",
+   "Oliy matematika & Statistika",
+   "Big Data (Spark)",
+   "Machine Learning & Deep Learning"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Kaggle platformasida Titanik yo'lovchilari omon qolish tahlili"
+   },
+   {
+    "level": "O'rta",
+    "title": "Shahar taksi harakati va tiqilinchlarni bashorat qiluvchi model"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Global iqlim o'zgarishi va qurg'oqchilikni prognozlovchi ilmiy Data Science loyihasi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Data Scientist",
+    "salary": "$700 - $1,300 / oy"
+   },
+   {
+    "role": "Lead Data Scientist",
+    "salary": "$2,200 - $5,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "database",
+  "category": "data",
+  "title": "Database Engineering (Baza muhandisligi)",
+  "short_desc": "Millionlab odamlarning ma'lumotlarini xavfsiz va bir soniyada topib beruvchi tuzilma.",
+  "what_is": "Database Engineering — ma'lumotlar yo'qolmasligi, buzilmasligi va o'ta tezkor ishlashi uchun SQL (PostgreSQL, MySQL) va NoSQL (MongoDB, Cassandra) tizimlarini loyihalash.",
+  "applications": [
+   "Bank hisob raqamlari xavfsizligi",
+   "Katta onlayn o'yinlar foydalanuvchilar bazasi",
+   "Hukumat yagona reyestrlari"
+  ],
+  "what_they_do": "So'rovlarni optimallashtiradi, zaxira nusxalar (backup) oladi, bazalarni replikatsiya qiladi.",
+  "what_to_learn": [
+   "SQL chuqur",
+   "PostgreSQL & Indexing",
+   "Tranzaksiyalar (ACID)",
+   "NoSQL bazalar",
+   "Baza optimallash"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Kutubxona boshqaruv bazasini SQL da to'liq loyihalash"
+   },
+   {
+    "level": "O'rta",
+    "title": "Million qatorli bazada qidiruvni 10 barobar tezlashtirish"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Xalqaro to'lov tizimi uchun uzluksiz ishlaydigan taqsimlangan ma'lumotlar bazasi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Database Administrator (DBA)",
+    "salary": "$1,000 - $2,500 / oy"
+   }
+  ]
+ },
+ {
+  "id": "uiux",
+  "category": "design",
+  "title": "UI/UX Design",
+  "short_desc": "Ilovalarni go'zal, jozibali va insonlar uchun o'ta qulay qilib chizish san'ati.",
+  "what_is": "UI (User Interface) — dasturning tashqi go'zalligi, ranglari va shriftlari. UX (User Experience) — foydalanuvchining saytdan qanchalik oson va tushunarli foydalana olishi psixologiyasi.",
+  "applications": [
+   "Mobil banking ilovalari dizayni",
+   "Startaplar uchun zamonaviy interfeyslar",
+   "Kasalxona va ta'lim tizimlari qulayligi"
+  ],
+  "what_they_do": "Foydalanuvchilarni o'rganadi, prototiplar chizadi, Figma'da dizayn tizimlari yaratadi va dasturchilarga topshiradi.",
+  "what_to_learn": [
+   "Figma & FigJam",
+   "Ranglar psixologiyasi & Tipografika",
+   "UX tadqiqot & Wireframing",
+   "Dizayn tizimlari (Design Systems)",
+   "Interaktiv animatsiyalar"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Qizlar uchun ilhomlantiruvchi shaxsiy kundalik mobil ilovasi dizayni"
+   },
+   {
+    "level": "O'rta",
+    "title": "To'liq qulay Onlayn dori buyurtma qilish servisi UX tadqiqoti va dizayni"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Xalqaro darajadagi Neobank va Kripto-hamyon super-ilovasi dizayn tizimi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior UI/UX Designer",
+    "salary": "$400 - $800 / oy"
+   },
+   {
+    "role": "Middle Product Designer",
+    "salary": "$1,200 - $2,400 / oy"
+   },
+   {
+    "role": "Head of Design",
+    "salary": "$2,800 - $5,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "graphic_design",
+  "category": "design",
+  "title": "Graphic & Brand Design",
+  "short_desc": "Brend identifikatsiyasi, logotiplar, illyustratsiyalar va reklama kreativlari.",
+  "what_is": "Grafik dizayn — kompaniyalarning o'ziga xos qiyofasini (brand identity) yaratish, bannerlar, ijtimoiy tarmoqlar uchun vizual san'at yaratish kasbidir.",
+  "applications": [
+   "Kompaniyalar brendingi va qadoq dizayni",
+   "Ijtimoiy tarmoq marketingi (SMM)",
+   "Raqamli illyustratsiyalar"
+  ],
+  "what_they_do": "Photoshop, Illustrator dasturlarida kreativlar chizadi, brendbuklar tuzadi.",
+  "what_to_learn": [
+   "Adobe Illustrator",
+   "Adobe Photoshop",
+   "Brending asoslari",
+   "Kompozitsiya va rang uyg'unligi"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Yangi IT-qizlar akademiyasi uchun logo va ijtimoiy tarmoq shablonlari"
+   },
+   {
+    "level": "O'rta",
+    "title": "Eko-kosmetika brendi uchun qadoq va vizual uslub"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Xalqaro IT konferensiya uchun to'liq vizual brending paketi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Graphic Designer",
+    "salary": "$400 - $1,200 / oy"
+   }
+  ]
+ },
+ {
+  "id": "cybersecurity",
+  "category": "security",
+  "title": "Cybersecurity (Kiberxavfsizlik)",
+  "short_desc": "Raqamli dunyoni xakerlar, viruslar va ma'lumotlar o'g'irlanishidan himoya qilish.",
+  "what_is": "Kiberxavfsizlik — kompyuter tizimlari, tarmoqlar va maxfiy ma'lumotlarni noqonuniy hujumlar va xakerlikdan himoya qilish bilan shug'ullanuvchi yuqori mas'uliyatli soha.",
+  "applications": [
+   "Davlat sirlari va strategik infratuzilmalarni himoyalash",
+   "Bank tizimlaridan pul o'g'irlanishining oldini olish",
+   "Insonlarning shaxsiy yozishmalari va akkauntlarini himoya qilish"
+  ],
+  "what_they_do": "Zaifliklarni qidiradi, xavfsizlik devorlari (Firewall) o'rnatadi, tizim buzilganida tezkor choralar ko'radi.",
+  "what_to_learn": [
+   "Kompyuter tarmoqlari (TCP/IP, OSI)",
+   "Linux operatsion tizimi",
+   "Kriptografiya asoslari",
+   "Xavfsizlik protokollari",
+   "Python bilan xavfsizlik skriptlari"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Tarmoqdagi ochiq portlar va zaifliklarni skanerlovchi skript"
+   },
+   {
+    "level": "O'rta",
+    "title": "Foydalanuvchi parollarining xavfsizligini tekshiruvchi tahlilchi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Kichik korxona tarmog'ini kiberhujumlardan himoyalovchi to'liq xavfsizlik tizimi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Security Analyst",
+    "salary": "$600 - $1,100 / oy"
+   },
+   {
+    "role": "Cybersecurity Specialist",
+    "salary": "$1,600 - $3,500 / oy"
+   },
+   {
+    "role": "Chief Information Security Officer (CISO)",
+    "salary": "$4,000 - $8,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "ethical_hacking",
+  "category": "security",
+  "title": "Ethical Hacking (Oq xakerlik)",
+  "short_desc": "Kompaniyalar ruxsati bilan ularning tizimlarini buzib ko'rib, teshiklarni topish.",
+  "what_is": "Ethical Hacker (White Hat) — yovuz niyatli xakerlardan oldin tizimning zaif joylarini aniqlash maqsadida rasmiy ruxsat bilan hujum uyushtiruvchi mutaxassis.",
+  "applications": [
+   "Penetration Testing (Pen-test)",
+   "Bug Bounty dasturlari (katta mukofotlar yutish)",
+   "Kritik tizimlar auditi"
+  ],
+  "what_they_do": "Web saytlar, mobil ilovalar va tarmoqlarni sinovdan o'tkazadi va xatolar hisobotini tayyorlaydi.",
+  "what_to_learn": [
+   "Kali Linux",
+   "Burp Suite, Wireshark, Metasploit",
+   "OWASP Top 10 zaifliklari",
+   "Veb dasturlash xavfsizligi"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Test veb-saytidagi SQL Injection va XSS zaifliklarini topish"
+   },
+   {
+    "level": "O'rta",
+    "title": "Mahalliy Wi-Fi tarmog'ining xavfsizlik darajasini baholash"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Xalqaro Bug Bounty platformasida real zaiflik topib mukofot olish"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Penetration Tester",
+    "salary": "$1,500 - $4,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "cloud",
+  "category": "networks",
+  "title": "Cloud Computing (Bulutli texnologiyalar)",
+  "short_desc": "Amazon AWS, Google Cloud va Microsoft Azure da global infratuzilma qurish.",
+  "what_is": "Cloud Computing — jismoniy server sotib olmasdan, internet orqali dunyoning istalgan burchagidagi ulkan quvvatli serverlarni ijaraga olib loyihalarni boshqarish.",
+  "applications": [
+   "Netflix kabi ulkan video oqimlarni uzatish",
+   "Dunyodagi barcha yirik startaplar",
+   "Zaxira saqlash tizimlari"
+  ],
+  "what_they_do": "Bulutda serverlar yaratadi, ularni avtomatik kengayadigan (auto-scaling) qiladi va xarajatlarni optimallashtiradi.",
+  "what_to_learn": [
+   "AWS yoki Google Cloud / Azure",
+   "Linux asoslari",
+   "Terraform (Infrastructure as Code)",
+   "Serverless texnologiyalar"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "AWS S3 va CloudFront yordamida tezkor veb-sayt joylash"
+   },
+   {
+    "level": "O'rta",
+    "title": "Avtomatik yuklamaga moslashuvchi EC2 server klasterini sozlash"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Ko'p mintaqali (Multi-region) global xizmat arxitekturasini yaratish"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Cloud Practitioner",
+    "salary": "$800 - $1,500 / oy"
+   },
+   {
+    "role": "Cloud Solutions Architect",
+    "salary": "$2,500 - $6,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "networks",
+  "category": "networks",
+  "title": "Computer Networks & SysAdmin",
+  "short_desc": "Kompaniya kompyuterlari, serverlari va internet o'rtasidagi uzluksiz aloqa.",
+  "what_is": "Tarmoq muhandisligi — butun dunyo bo'ylab internet ma'lumotlarining xavfsiz va uzluksiz harakatlanishini ta'minlovchi marshrutizatorlar (Cisco, MikroTik) va serverlar boshqaruvi.",
+  "applications": [
+   "Ofis va korxonalar lokal tarmoqlari",
+   "Data-markazlar (Data Centers)",
+   "Internet provayderlar infratuzilmasi"
+  ],
+  "what_they_do": "Tarmoqlarni o'rnatadi, IP manzillarni taqsimlaydi, routerlarni sozlaydi va nosozliklarni bartaraf qiladi.",
+  "what_to_learn": [
+   "CCNA kursi asoslari",
+   "Subnetting & VLAN",
+   "Linux Server boshqaruvi",
+   "DNS, DHCP, VPN"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "Packet Tracer dasturida kichik maktab tarmog'ini loyihalash"
+   },
+   {
+    "level": "O'rta",
+    "title": "Xavfsiz korporativ VPN serverini o'rnatish"
+   },
+   {
+    "level": "Yuqori",
+    "title": "1000 kishilik korxona uchun uzluksiz ishlaydigan zaxira tarmoq infratuzilmasi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Network Administrator",
+    "salary": "$600 - $1,500 / oy"
+   }
+  ]
+ },
+ {
+  "id": "gamedev",
+  "category": "other",
+  "title": "Game Development (O'yin dasturlash)",
+  "short_desc": "O'z tasavvuringizdagi 2D va 3D virtual olamlarni jonlantirish.",
+  "what_is": "Game Development — Unity (C#) yoki Unreal Engine (C++) dvigatellari yordamida kompyuter, telefon yoki VR ko'zoynaklar uchun o'yinlar yaratish sohasi.",
+  "applications": [
+   "Mobil o'yinlar (Subway Surfers, Candy Crush)",
+   "Katta kompyuter o'yinlari",
+   "VR/AR virtual simulyatsiyalar"
+  ],
+  "what_they_do": "Fizika, o'yin mantiqi, personajlar harakati va darajalar (levels) dizaynini dasturlaydi.",
+  "what_to_learn": [
+   "Unity & C#",
+   "3D matematika va fizika",
+   "O'yin mexanikalari",
+   "Ovoz va animatsiya integratsiyasi"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "2D Flappy Bird yoki Labirint o'yinini yaratish"
+   },
+   {
+    "level": "O'rta",
+    "title": "Smartfonlar uchun 3D cheksiz yuguruvchi (Endless Runner) o'yin"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Ko'p o'yinchili (Multiplayer) onlayn sarguzasht o'yini"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior Unity Developer",
+    "salary": "$500 - $1,000 / oy"
+   },
+   {
+    "role": "Middle Game Programmer",
+    "salary": "$1,400 - $3,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "devops",
+  "category": "other",
+  "title": "DevOps Engineering",
+  "short_desc": "Dasturchilar yozgan kodni avtomat tarzda serverlarga xatosiz yetkazib berish.",
+  "what_is": "DevOps — dasturlash (Development) va operatsiyalar (Operations) o'rtasidagi ko'prik. U kodni sinovdan o'tkazish, konteynerlash va serverlarga chiqarishni to'liq avtomatlashtiradi.",
+  "applications": [
+   "Dasturlarni har kuni yuzlab marta xatosiz yangilash",
+   "Serverlar to'xtab qolishining oldini olish"
+  ],
+  "what_they_do": "CI/CD quvurlarini quradi, Docker va Kubernetes klasterlarini boshqaradi, monitoring qiladi.",
+  "what_to_learn": [
+   "Linux & Bash skriptlar",
+   "Git & GitHub Actions (CI/CD)",
+   "Docker & Kubernetes",
+   "Ansible & Terraform",
+   "Prometheus & Grafana"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "GitHub Actions orqali avtomatik test va saytni serverga yuklash"
+   },
+   {
+    "level": "O'rta",
+    "title": "Docker Compose yordamida to'liq veb-ilovaning barcha qismlarini konteynerlash"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Kubernetes klasterida mikroservislarni nol uzilish bilan yangilash tizimi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Junior DevOps Engineer",
+    "salary": "$800 - $1,400 / oy"
+   },
+   {
+    "role": "Senior DevOps / SRE Specialist",
+    "salary": "$2,500 - $5,500 / oy"
+   }
+  ]
+ },
+ {
+  "id": "robotics",
+  "category": "other",
+  "title": "Robotics & IoT (Robototexnika)",
+  "short_desc": "Aqlli uskunalar, sensorlar, mikrokontrollerlar va robotlarni dasturlash.",
+  "what_is": "Robototexnika va Internet of Things (IoT) — jismoniy qurilmalarni (Arduino, Raspberry Pi) internetga ulab, ularni atrof-muhitni his qiluvchi va buyruqlarni bajaruvchi aqlli tizimlarga aylantirish.",
+  "applications": [
+   "Aqlli uy tizimlari (Smart Home)",
+   "Avtomatlashgan issiqxonalar va qishloq xo'jaligi",
+   "Tibbiy jarrohlik robotlari"
+  ],
+  "what_they_do": "Sensorlardan ma'lumot oladi, motorlarni boshqaradi, mikrosxemalar uchun C/C++ va Python tillarida dastur yozadi.",
+  "what_to_learn": [
+   "Elektronika asoslari",
+   "Arduino & Raspberry Pi",
+   "C++ / MicroPython",
+   "MQTT & IoT protokollari"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "O'simliklar namligini o'lchab avtomatik sug'oruvchi aqlli qurilma"
+   },
+   {
+    "level": "O'rta",
+    "title": "Smartfon orqali boshqariladigan Bluetooth mini-robot"
+   },
+   {
+    "level": "Yuqori",
+    "title": "Kamera orqali buyumlarni saralaydigan sun'iy intellektli robot-qo'l"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Embedded / IoT Engineer",
+    "salary": "$700 - $2,000 / oy"
+   }
+  ]
+ },
+ {
+  "id": "blockchain",
+  "category": "other",
+  "title": "Blockchain & Web3",
+  "short_desc": "O'zgartirib bo'lmas shaffof ma'lumotlar zanjiri va aqlli shartnomalar (Smart Contracts).",
+  "what_is": "Blockchain — markaziy boshqaruvchisiz, barcha ishtirokchilar tomonidan tasdiqlanadigan xavfsiz taqsimlangan registr texnologiyasi.",
+  "applications": [
+   "Kriptovalyutalar va xavfsiz xalqaro to'lovlar",
+   "Decentralized Finance (DeFi)",
+   "Diplomlar va mualliflik huquqini himoyalash"
+  ],
+  "what_they_do": "Solidity tilida aqlli shartnomalar yozadi, Web3 dApp ilovalarini yaratadi.",
+  "what_to_learn": [
+   "Kriptografiya asoslari",
+   "Solidity dasturlash tili",
+   "Ethereum & Smart Contracts",
+   "Ethers.js / Web3.js"
+  ],
+  "projects": [
+   {
+    "level": "Boshlang'ich",
+    "title": "O'z shaxsiy tokeningizni yaratish va test tarmog'ida ishga tushirish"
+   },
+   {
+    "level": "O'rta",
+    "title": "Ochiq va shaffof onlayn ovoz berish (Voting) aqlli shartnomasi"
+   },
+   {
+    "level": "Yuqori",
+    "title": "To'liq markazlashmagan xayriya jamg'armasi Web3 platformasi"
+   }
+  ],
+  "career_roles": [
+   {
+    "role": "Solidity / Web3 Developer",
+    "salary": "$1,500 - $4,500 / oy"
+   }
+  ]
+ }
+]
