@@ -35,9 +35,12 @@ export class AIError extends Error {
   }
 }
 
+/** Muhit o'zgaruvchisini tozalash: nusxalashda qolib ketgan probel, qator oxiri va qo'shtirnoqlar */
+const env = (name: string) => (process.env[name] ?? "").trim().replace(/^["']|["']$/g, "");
+
 function providers(): Provider[] {
   const list: Provider[] = [];
-  if (process.env.GEMINI_API_KEY) {
+  if (env("GEMINI_API_KEY")) {
     // Gemini ba'zan "high demand" (503) qaytaradi — shu kalit bilan bir nechta modelni navbat bilan sinaymiz.
     // GEMINI_MODEL vergul bilan ajratilgan ro'yxat bo'lishi mumkin.
     const models = (process.env.GEMINI_MODEL || "gemini-flash-latest,gemini-flash-lite-latest,gemini-3.5-flash,gemini-3.8-flash")
@@ -48,24 +51,24 @@ function providers(): Provider[] {
       list.push({
         name: "gemini",
         url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-        key: process.env.GEMINI_API_KEY,
+        key: env("GEMINI_API_KEY"),
         model,
       });
     }
   }
-  if (process.env.GROQ_API_KEY) {
+  if (env("GROQ_API_KEY")) {
     list.push({
       name: "groq",
       url: "https://api.groq.com/openai/v1/chat/completions",
-      key: process.env.GROQ_API_KEY,
+      key: env("GROQ_API_KEY"),
       model: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
     });
   }
-  if (process.env.DEEPSEEK_API_KEY) {
+  if (env("DEEPSEEK_API_KEY")) {
     list.push({
       name: "deepseek",
       url: "https://api.deepseek.com/chat/completions",
-      key: process.env.DEEPSEEK_API_KEY,
+      key: env("DEEPSEEK_API_KEY"),
       model: process.env.DEEPSEEK_MODEL || "deepseek-chat",
     });
   }

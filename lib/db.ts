@@ -48,7 +48,7 @@ const g = globalThis as unknown as { __hpDb?: Promise<QueryFn> };
 
 async function connect(): Promise<QueryFn> {
   let run: QueryFn;
-  const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+  const url = (process.env.DATABASE_URL || process.env.POSTGRES_URL || "").trim();
 
   if (url) {
     const { neon } = await import("@neondatabase/serverless");

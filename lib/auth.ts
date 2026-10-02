@@ -9,7 +9,7 @@ const COOKIE = "hp_session";
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 kun
 
 function secretKey(): Uint8Array {
-  const secret = process.env.AUTH_SECRET;
+  const secret = process.env.AUTH_SECRET?.trim();
   if (!secret) {
     if (process.env.NODE_ENV === "production") {
       throw new Error("AUTH_SECRET muhit o'zgaruvchisi o'rnatilmagan.");
