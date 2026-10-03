@@ -13,6 +13,7 @@ export const PUBLIC_LINKS = [
 export const APP_LINKS = [
   { href: "/dashboard", label: "Kabinet" },
   { href: "/mentor", label: "AI Mentor" },
+  { href: "/learn", label: "Darslar" },
   { href: "/directions", label: "Yo‘nalishlar" },
   { href: "/universities", label: "Universitetlar" },
 ];

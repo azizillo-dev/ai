@@ -1,3 +1,5 @@
+export { splitForSpeech } from "./speech-split";
+
 /**
  * Brauzer tomonidagi ovoz vositalari (faqat client komponentlarda ishlatiladi).
  * - Recorder: mikrofon → 16 kHz mono WAV, jimlikda avtomatik to'xtaydi
@@ -296,18 +298,3 @@ export class SentenceSplitter {
   }
 }
 
-/** Uzun matnni jumla chegarasida ~max belgilik bo'laklarga bo'lish (birinchi ovoz tezroq keladi) */
-export function splitForSpeech(text: string, max = 300): string[] {
-  const sentences = text.match(/[^.!?…]+[.!?…]*\s*/g) ?? [text];
-  const out: string[] = [];
-  let cur = "";
-  for (const s of sentences) {
-    if (cur && (cur + s).length > max) {
-      out.push(cur.trim());
-      cur = "";
-    }
-    cur += s;
-  }
-  if (cur.trim()) out.push(cur.trim());
-  return out;
-}
