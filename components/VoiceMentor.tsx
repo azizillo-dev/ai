@@ -164,7 +164,7 @@ export default function VoiceMentor({
 
   const greet = () => {
     getAudioContext();
-    const text = `Salom, ${name}! Men Aziza, sizning AI mentoringizman. IT, darslar yoki universitetlar haqida nima so‘ramoqchisiz? Mikrofon tugmasini bosing va gapiring.`;
+    const text = `Salom, ${name}! Men Madina, sizning AI mentoringizman. IT, darslar yoki universitetlar haqida nima so‘ramoqchisiz? Mikrofon tugmasini bosing va gapiring.`;
     setReply(text);
     setPhase("idle");
     if (!mutedRef.current) getQueue().enqueue(text);
@@ -187,7 +187,7 @@ export default function VoiceMentor({
       <div className="voice-stage">
         <VoiceAvatar state={avatarState} getLevel={getLevel} size={210} />
         <div>
-          <div className="voice-name">Aziza</div>
+          <div className="voice-name">Madina</div>
           <div className="voice-status" aria-live="polite">
             {STATUS[phase]}
           </div>

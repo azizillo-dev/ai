@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 export type AvatarState = "idle" | "listening" | "thinking" | "speaking";
 
 /**
- * Aziza — gapiradigan AI mentor avatari.
+ * Madina — gapiradigan AI mentor avatari.
  * Atrofdagi halqalar ovoz balandligiga (getLevel) qarab harakatlanadi.
  * Har kadrda React render qilinmaydi — faqat CSS o'zgaruvchisi (--lvl) yangilanadi.
  */
@@ -46,7 +46,7 @@ export default function VoiceAvatar({
       <span className="va-ring r1" />
       <span className="va-spin" />
       <span className="va-face">
-        <Image src="/aziza-avatar.jpg" alt="" width={320} height={320} priority />
+        <Image src="/madina-avatar.jpg" alt="" width={320} height={320} priority />
       </span>
     </div>
   );

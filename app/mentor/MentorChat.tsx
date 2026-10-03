@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowUp, Keyboard, Mic, Square, Trash2 } from "lucide-react";
 import Markdown from "@/components/Markdown";
-import VoiceMentor from "@/components/VoiceMentor";
+import LiveMentor from "@/components/LiveMentor";
 
 interface Msg {
   id: string;
@@ -136,10 +136,10 @@ export default function MentorChat({
     <div className="chat-page">
       <div className="chat-head">
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <img src="/aziza-avatar.jpg" alt="" width={40} height={40} style={{ borderRadius: "50%" }} />
+          <img src="/madina-avatar.jpg" alt="" width={40} height={40} style={{ borderRadius: "50%" }} />
           <div>
-            <h1>Aziza — AI mentor</h1>
-            <small>Profilingiz va test natijangizni biladi</small>
+            <h1>AI mentor</h1>
+            <small>Madina yoki Jasur — profilingizni biladi</small>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -160,7 +160,7 @@ export default function MentorChat({
       </div>
 
       {mode === "voice" ? (
-        <VoiceMentor
+        <LiveMentor
           name={name}
           onExchange={(q, a) =>
             setMessages((m) => [

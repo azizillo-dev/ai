@@ -160,10 +160,11 @@ export default async function Home() {
           <div>
             <span className="eyebrow">AI mentor</span>
             <h2 className="h-section">
-              Tushunmadingizmi? <span className="serif">Bemalol</span> qayta so‘rang.
+              Madina yoki Jasur bilan <span className="serif">gaplashing.</span>
             </h2>
             <p className="lead" style={{ marginTop: 14 }}>
-              Mentor sizning profilingiz va test natijangizni biladi, shuning uchun javoblari aynan sizning darajangizga mos bo‘ladi.
+              Ovozli AI mentor sizni tinglaydi va o‘zbek tilida jonli javob beradi — xuddi haqiqiy ustoz bilan suhbatdek. U profilingiz va
+              test natijangizni biladi.
             </p>
             <ul className="check-list">
               <li>
@@ -171,8 +172,8 @@ export default async function Home() {
                   <Sparkles size={19} strokeWidth={1.8} />
                 </span>
                 <div>
-                  <strong>Oddiy hayotiy misollar</strong>
-                  <span>Murakkab atamalar oshxona, maktab yoki bozor misolida tushuntiriladi.</span>
+                  <strong>Real vaqtdagi ovozli suhbat</strong>
+                  <span>Tugma bosish shart emas — shunchaki gapiring. Mentor qo‘l harakatlari bilan tushuntiradi.</span>
                 </div>
               </li>
               <li>
@@ -180,8 +181,8 @@ export default async function Home() {
                   <Compass size={19} strokeWidth={1.8} />
                 </span>
                 <div>
-                  <strong>Shaxsiy yo‘l-yo‘riq</strong>
-                  <span>“Bugun 1 soatim bor, nima o‘rganay?” — rejangizga qarab aniq javob.</span>
+                  <strong>Animatsion video-darslar</strong>
+                  <span>Har bir mavzu qisqa animatsion dars sifatida ovoz bilan tushuntiriladi, oxirida mini-test.</span>
                 </div>
               </li>
               <li>
@@ -189,8 +190,8 @@ export default async function Home() {
                   <MessageCircle size={19} strokeWidth={1.8} />
                 </span>
                 <div>
-                  <strong>Kod va xatolar bo‘yicha yordam</strong>
-                  <span>Kodingizni yuboring — xato qayerda va qanday tuzatish kerakligini tushuntiradi.</span>
+                  <strong>Universitet tanlashda yordam</strong>
+                  <span>O‘zbekistondagi IT universitetlari, kirish imtihonlari va sizga mos yo‘nalishlar.</span>
                 </div>
               </li>
             </ul>

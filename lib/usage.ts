@@ -6,6 +6,7 @@ export const LIMITS = {
   stt: 120, // ovozli savollar
   tts: 200, // keshda yo'q ovozlar
   lesson: 15, // yangi dars generatsiyasi
+  live: 40, // real vaqtdagi ovozli suhbat sessiyalari
 } as const;
 
 export type UsageKind = keyof typeof LIMITS;

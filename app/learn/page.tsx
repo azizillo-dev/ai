@@ -41,7 +41,7 @@ export default async function LearnPage() {
         <span className="eyebrow">Video-darslar</span>
         <h1>Ko‘rib o‘rganing</h1>
         <p>
-          Mavzuni tanlang — Aziza uni qisqa animatsion dars sifatida ovoz bilan tushuntirib beradi. Oxirida 3 ta savollik mini-test
+          Mavzuni tanlang — Madina uni qisqa animatsion dars sifatida ovoz bilan tushuntirib beradi. Oxirida 3 ta savollik mini-test
           bor.
         </p>
       </div>

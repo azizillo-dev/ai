@@ -5,7 +5,7 @@ import { Headphones, X } from "lucide-react";
 import VoiceAvatar from "./VoiceAvatar";
 import { getAudioContext, readLevel, SpeechQueue, splitForSpeech } from "@/lib/voice-client";
 
-/** Berilgan matn bo'laklarini Aziza ovozida o'qib beruvchi suzuvchi panel. */
+/** Berilgan matn bo'laklarini Madina ovozida o'qib beruvchi suzuvchi panel. */
 export default function Narrator({ parts, label = "Natijamni tinglash" }: { parts: string[]; label?: string }) {
   const [open, setOpen] = useState(false);
   const [speaking, setSpeaking] = useState(false);
@@ -45,11 +45,11 @@ export default function Narrator({ parts, label = "Natijamni tinglash" }: { part
         <Headphones size={17} /> {label}
       </button>
       {open && (
-        <div className="narrator" role="dialog" aria-label="Aziza tushuntirmoqda">
+        <div className="narrator" role="dialog" aria-label="Madina tushuntirmoqda">
           <div className="narrator-head">
             <VoiceAvatar state={speaking ? "speaking" : "idle"} getLevel={getLevel} size={64} />
             <div style={{ flex: 1 }}>
-              <strong>Aziza</strong>
+              <strong>Madina</strong>
               <div className="muted" style={{ fontSize: 13 }}>
                 {speaking ? "Gapiryapti…" : note ? "Ovoz yuklanmadi" : "Tayyorlanmoqda…"}
               </div>

@@ -9,6 +9,9 @@ Qizlar uchun sun’iy intellekt asosidagi IT karyera platformasi:
   eng mos 3 ta yo‘nalish (foiz va sabab bilan), qobiliyatlar xaritasi, kuchli/zaif tomonlar, haftalik vaqtga mos yo‘l xaritasi va birinchi hafta rejasi.
 - **AI Mentor** — profil va test natijasini biladigan, javobni yozilayotgandek (streaming) qaytaradigan chat. Suhbat tarixi bazada saqlanadi.
 - **24 ta IT yo‘nalishi katalogi** — har biri uchun alohida sahifa.
+- **Ovozli AI mentor (Madina yoki Jasur)** — beligacha ko‘rinadigan, qo‘l harakatlari bilan gapiradigan qahramon. Gemini Live orqali real vaqtda suhbat: tugma bosmasdan gapiriladi, mentor gapini bo‘lish mumkin. API kalit brauzerga chiqmaydi (bir martalik token).
+- **Animatsion video-darslar** — AI har bir mavzu uchun 5–7 sahnali dars yozadi, sahnalar ovoz va animatsiya bilan ko‘rsatiladi, oxirida mini-test. Darslar va ovozlar bir marta yaratilib, bazada keshlanadi.
+- **IT universitetlari** — O‘zbekistondagi IT universitetlari, davlat qabuli tartibi va test natijasiga mos tavsiyalar.
 - **Kapalaklar** — hero qismida canvas’da uchadi, desktopda sichqonchaga ergashadi, telefonda ekranga tegilgan joyga uchib keladi.
 
 ## Texnologiyalar
