@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/auth";
 import { queryOne } from "@/lib/db";
 import type { AssessmentResult } from "@/lib/assessment";
 import FirstWeek from "./FirstWeek";
+import Narrator from "@/components/Narrator";
 import { matchUniversities } from "@/lib/universities";
 
 export const metadata: Metadata = { title: "Kabinet" };
@@ -49,6 +50,13 @@ export default async function Dashboard() {
 
   const r = latest.result;
   const unis = matchUniversities(r.directions.map((d) => d.id)).slice(0, 3);
+  const top = r.directions[0];
+  const narration = [
+    `${user.name}, natijangiz tayyor! Sizning profilingiz — ${r.profile_type}. ${r.summary}`,
+    top ? `Sizga eng mos yo‘nalish — ${top.title}, ${top.match} foiz. ${top.why}` : "",
+    r.roadmap[0] ? `Birinchi qadamingiz: ${r.roadmap[0].title}. ${r.roadmap[0].description}` : "",
+    r.advice,
+  ].filter(Boolean);
   const finished = latest.finished_at ? dateFmt.format(new Date(latest.finished_at)) : "";
 
   return (
@@ -59,6 +67,7 @@ export default async function Dashboard() {
           <p>Bu sizning shaxsiy AI tahlilingiz{finished ? ` — ${finished}` : ""}.</p>
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <Narrator parts={narration} />
           <Link href="/mentor" className="btn btn-primary">
             <MessageCircle size={17} /> AI mentor
           </Link>

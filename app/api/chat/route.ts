@@ -16,7 +16,8 @@ export async function POST(req: Request) {
     const user = await getCurrentUser();
     if (!user) return fail("Avval tizimga kiring.", 401);
 
-    const body = (await readJSON(req)) as { message?: unknown } | null;
+    const body = (await readJSON(req)) as { message?: unknown; voice?: unknown } | null;
+    const voice = body?.voice === true;
     const message = typeof body?.message === "string" ? body.message.trim().slice(0, 2000) : "";
     if (!message) return fail("Xabar bo‘sh.");
 
@@ -40,12 +41,12 @@ export async function POST(req: Request) {
     ]);
 
     const messages: ChatMessage[] = [
-      { role: "system", content: mentorSystemPrompt(user, latest?.result ?? null) },
+      { role: "system", content: mentorSystemPrompt(user, latest?.result ?? null, { voice }) },
       ...history.reverse().map((m) => ({ role: m.role, content: m.content })),
       { role: "user", content: message },
     ];
 
-    const body$ = await stream(messages, { temperature: 0.6, maxTokens: 4000 }, async (full) => {
+    const body$ = await stream(messages, { temperature: 0.6, maxTokens: voice ? 1200 : 4000 }, async (full) => {
       await query("INSERT INTO chat_messages (user_id, role, content) VALUES ($1, 'user', $2), ($1, 'assistant', $3)", [
         user.id,
         message,

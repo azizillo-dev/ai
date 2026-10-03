@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowUp, Square, Trash2 } from "lucide-react";
+import { ArrowUp, Keyboard, Mic, Square, Trash2 } from "lucide-react";
 import Markdown from "@/components/Markdown";
-import { ButterflyMark } from "@/components/Logo";
+import VoiceMentor from "@/components/VoiceMentor";
 
 interface Msg {
   id: string;
@@ -21,8 +21,19 @@ const SUGGESTIONS = [
   "Portfolio uchun qanday loyiha qilsam bo‘ladi?",
 ];
 
-export default function MentorChat({ name, initial, prefill }: { name: string; initial: Msg[]; prefill: string }) {
+export default function MentorChat({
+  name,
+  initial,
+  prefill,
+  startVoice = false,
+}: {
+  name: string;
+  initial: Msg[];
+  prefill: string;
+  startVoice?: boolean;
+}) {
   const router = useRouter();
+  const [mode, setMode] = useState<"text" | "voice">(startVoice && !prefill ? "voice" : "text");
   const [messages, setMessages] = useState<Msg[]>(initial);
   const [input, setInput] = useState(prefill);
   const [busy, setBusy] = useState(false);
@@ -125,20 +136,42 @@ export default function MentorChat({ name, initial, prefill }: { name: string; i
     <div className="chat-page">
       <div className="chat-head">
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span className="logo-mark">
-            <ButterflyMark />
-          </span>
+          <img src="/aziza-avatar.jpg" alt="" width={40} height={40} style={{ borderRadius: "50%" }} />
           <div>
-            <h1>AI Mentor</h1>
+            <h1>Aziza — AI mentor</h1>
             <small>Profilingiz va test natijangizni biladi</small>
           </div>
         </div>
-        {messages.length > 0 && (
-          <button className="btn btn-ghost btn-sm" onClick={clear} disabled={busy} aria-label="Suhbatni tozalash">
-            <Trash2 size={16} /> <span className="hide-m">Tozalash</span>
-          </button>
-        )}
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <div className="seg" role="group" aria-label="Suhbat turi">
+            <button aria-pressed={mode === "text"} onClick={() => setMode("text")}>
+              <Keyboard size={15} /> <span className="hide-m">Yozish</span>
+            </button>
+            <button aria-pressed={mode === "voice"} onClick={() => setMode("voice")}>
+              <Mic size={15} /> <span className="hide-m">Gaplashish</span>
+            </button>
+          </div>
+          {mode === "text" && messages.length > 0 && (
+            <button className="btn btn-ghost btn-sm" onClick={clear} disabled={busy} aria-label="Suhbatni tozalash">
+              <Trash2 size={16} />
+            </button>
+          )}
+        </div>
       </div>
+
+      {mode === "voice" ? (
+        <VoiceMentor
+          name={name}
+          onExchange={(q, a) =>
+            setMessages((m) => [
+              ...m,
+              { id: `vu${Date.now()}`, role: "user", content: q },
+              { id: `va${Date.now()}`, role: "assistant", content: a },
+            ])
+          }
+        />
+      ) : (
+        <>
 
       <div className="chat-scroll" ref={scrollRef} onScroll={onScroll} aria-live="polite">
         {messages.length === 0 && (
@@ -214,6 +247,8 @@ export default function MentorChat({ name, initial, prefill }: { name: string; i
         </form>
         <p className="chat-note">AI xato qilishi mumkin — muhim ma’lumotlarni rasmiy manbalardan tekshiring.</p>
       </div>
+        </>
+      )}
     </div>
   );
 }

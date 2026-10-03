@@ -5,9 +5,10 @@ import MentorChat from "./MentorChat";
 
 export const metadata: Metadata = { title: "AI Mentor" };
 
-export default async function MentorPage({ searchParams }: { searchParams: Promise<{ q?: string | string[] }> }) {
+export default async function MentorPage({ searchParams }: { searchParams: Promise<{ q?: string | string[]; voice?: string }> }) {
   const user = await requireUser("/mentor");
-  const q = (await searchParams).q;
+  const sp = await searchParams;
+  const q = sp.q;
   const rows = await query<{ id: number; role: "user" | "assistant"; content: string }>(
     "SELECT id, role, content FROM chat_messages WHERE user_id = $1 ORDER BY id DESC LIMIT 60",
     [user.id]
@@ -17,6 +18,7 @@ export default async function MentorPage({ searchParams }: { searchParams: Promi
       name={user.name}
       initial={rows.reverse().map((m) => ({ id: String(m.id), role: m.role, content: m.content }))}
       prefill={typeof q === "string" ? q.slice(0, 300) : ""}
+      startVoice={sp.voice === "1"}
     />
   );
 }

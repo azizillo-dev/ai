@@ -14,7 +14,16 @@ const UNI_FACTS = [
   `- Davlat qabuli: ${ADMISSION_2026.steps.map((s) => `${s.title} — ${s.text}`).join(" ")} ${ADMISSION_2026.scoring}`,
 ].join("\n");
 
-export function mentorSystemPrompt(u: User, result: AssessmentResult | null): string {
+const VOICE_RULES = `
+
+HOZIR OVOZLI SUHBAT: sening javobing ovoz chiqarib o‘qiladi.
+- Ismingni so‘rashsa: sening isming Aziza.
+- 2–4 ta qisqa, jonli jumla bilan javob ber, xuddi do‘stona ustoz gapirayotgandek.
+- Markdown, ro‘yxat, kod, havola, emoji va qavslar ishlatma — faqat oddiy gaplar.
+- Raqamlarni so‘z bilan yoz (masalan, "uch oy").
+- Oxirida suhbatni davom ettiruvchi bitta qisqa savol ber.`;
+
+export function mentorSystemPrompt(u: User, result: AssessmentResult | null, opts: { voice?: boolean } = {}): string {
   const diag = result
     ? `Diagnostika natijasi: tipi — ${result.profile_type}. Eng mos yo‘nalishlar: ${result.directions
         .map((d) => `${d.title} (${d.match}%)`)
@@ -42,5 +51,5 @@ Qanday javob berasan:
 - Universitet va qabul haqida so‘ralsa, faqat quyidagi tekshirilgan ma’lumotga tayan; bu yerda yo‘q narsani aniq deb aytma va sahifadagi /universities bo‘limini hamda rasmiy saytni tavsiya qil.
 
 O‘zbekistondagi IT universitetlari (2026 holatiga):
-${UNI_FACTS}`;
+${UNI_FACTS}${opts.voice ? VOICE_RULES : ""}`;
 }

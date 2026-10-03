@@ -42,6 +42,33 @@ const SCHEMA = [
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
   )`,
   `CREATE INDEX IF NOT EXISTS chat_messages_user_idx ON chat_messages (user_id, id DESC)`,
+  `CREATE TABLE IF NOT EXISTS tts_cache (
+    key        TEXT PRIMARY KEY,
+    audio      TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  )`,
+  `CREATE TABLE IF NOT EXISTS lessons (
+    key        TEXT PRIMARY KEY,
+    field_id   TEXT NOT NULL,
+    topic      TEXT NOT NULL,
+    data       JSONB NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  )`,
+  `CREATE TABLE IF NOT EXISTS lesson_progress (
+    user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    lesson_key   TEXT NOT NULL,
+    score        INTEGER NOT NULL DEFAULT 0,
+    total        INTEGER NOT NULL DEFAULT 0,
+    completed_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (user_id, lesson_key)
+  )`,
+  `CREATE TABLE IF NOT EXISTS usage_log (
+    id         SERIAL PRIMARY KEY,
+    user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    kind       TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  )`,
+  `CREATE INDEX IF NOT EXISTS usage_log_idx ON usage_log (user_id, kind, created_at DESC)`,
 ];
 
 const g = globalThis as unknown as { __hpDb?: Promise<QueryFn> };

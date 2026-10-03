@@ -1,4 +1,5 @@
 import "server-only";
+import { env } from "./env";
 
 /**
  * AI provayderlar qatlami. Barchasi OpenAI-mos /chat/completions API beradi:
@@ -35,8 +36,6 @@ export class AIError extends Error {
   }
 }
 
-/** Muhit o'zgaruvchisini tozalash: nusxalashda qolib ketgan probel, qator oxiri va qo'shtirnoqlar */
-const env = (name: string) => (process.env[name] ?? "").trim().replace(/^["']|["']$/g, "");
 
 function providers(): Provider[] {
   const list: Provider[] = [];
