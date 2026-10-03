@@ -1843,3 +1843,94 @@ body:has(.chat-page) .footer {
     display: none;
   }
 }
+
+/* ---------- Universities ---------- */
+.uni {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.uni-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.uni-short {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--violet-700);
+}
+.uni h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.uni-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.uni-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.uni-programs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.uni-programs span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink-2);
+}
+.uni-programs span.on {
+  background: var(--violet-50);
+  border-color: var(--violet-300);
+  color: var(--violet-800);
+  font-weight: 600;
+}
+.uni-adm {
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--ink-2);
+  flex: 1;
+}
+.uni-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.uni-fee {
+  display: block;
+  font-size: 14.5px;
+  margin-top: 4px;
+}
+.adm-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.adm-step p {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+.adm-step .tl-num {
+  flex-shrink: 0;
+}

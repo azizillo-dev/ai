@@ -12,6 +12,7 @@ export default function Footer() {
           </div>
           <nav className="footer-links" aria-label="Footer">
             <Link href="/directions">IT yo‘nalishlari</Link>
+            <Link href="/universities">IT universitetlari</Link>
             <Link href="/#how">Qanday ishlaydi</Link>
             <Link href="/#opportunities">Imkoniyatlar</Link>
             <Link href="/register">Ro‘yxatdan o‘tish</Link>

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CircleCheck, MessageCircle, RotateCcw, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, CircleCheck, GraduationCap, MessageCircle, RotateCcw, Sparkles, TrendingUp } from "lucide-react";
 import { requireUser } from "@/lib/auth";
 import { queryOne } from "@/lib/db";
 import type { AssessmentResult } from "@/lib/assessment";
 import FirstWeek from "./FirstWeek";
+import { matchUniversities } from "@/lib/universities";
 
 export const metadata: Metadata = { title: "Kabinet" };
 
@@ -47,6 +48,7 @@ export default async function Dashboard() {
   }
 
   const r = latest.result;
+  const unis = matchUniversities(r.directions.map((d) => d.id)).slice(0, 3);
   const finished = latest.finished_at ? dateFmt.format(new Date(latest.finished_at)) : "";
 
   return (
@@ -183,6 +185,27 @@ export default async function Dashboard() {
           {r.first_week.length > 0 && (
             <section className="card">
               <FirstWeek tasks={r.first_week} storageKey={`hp-week-${latest.id}`} />
+            </section>
+          )}
+
+          {unis.length > 0 && (
+            <section className="card">
+              <div className="card-head">
+                <h2>Sizga mos universitetlar</h2>
+              </div>
+              <ul className="bullets">
+                {unis.map((m) => (
+                  <li key={m.uni.id}>
+                    <GraduationCap size={17} color="var(--violet-600)" />
+                    <span>
+                      <b style={{ color: "var(--ink)" }}>{m.uni.short}</b> — {m.programs.map((p) => p.name).join(", ")}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/universities" className="link" style={{ marginTop: 14 }}>
+                Qabul tartibi va barcha universitetlar <ArrowRight size={16} />
+              </Link>
             </section>
           )}
 

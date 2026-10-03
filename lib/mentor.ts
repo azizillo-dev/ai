@@ -1,6 +1,18 @@
 import "server-only";
 import type { User } from "./auth";
 import type { AssessmentResult } from "./assessment";
+import { ADMISSION_2026, UNIVERSITIES } from "./universities";
+
+/** Universitetlar bo'yicha tekshirilgan qisqa ma'lumot — mentor to'qib chiqarmasligi uchun */
+const UNI_FACTS = [
+  ...UNIVERSITIES.map(
+    (u) =>
+      `- ${u.short} (${u.name}; ${u.type}; ${u.cities.join(", ")}; til: ${u.languages.join(", ")}): ${u.programs
+        .map((p) => p.name)
+        .join(", ")}. Qabul: ${u.admission.join("; ")}.${u.fee ? ` Narx: ${u.fee}.` : ""} Sayt: ${u.website}`
+  ),
+  `- Davlat qabuli: ${ADMISSION_2026.steps.map((s) => `${s.title} — ${s.text}`).join(" ")} ${ADMISSION_2026.scoring}`,
+].join("\n");
 
 export function mentorSystemPrompt(u: User, result: AssessmentResult | null): string {
   const diag = result
@@ -26,5 +38,9 @@ Qanday javob berasan:
 - Darajasiga mos gapir: yangi boshlovchiga atamalarni izohlab ber.
 - Aniq bilmagan narsangni (sana, narx, grant muddati) to‘qib chiqarma — rasmiy saytni tekshirishni maslahat ber.
 - Markdown: **qalin**, ro‘yxatlar, \`kod\`. Jadval va sarlavhalarni kam ishlat. Emoji ishlatma.
-- IT, ta’lim va karyeradan butunlay tashqari mavzularda muloyimlik bilan suhbatni o‘rganishga qaytar.`;
+- IT, ta’lim va karyeradan butunlay tashqari mavzularda muloyimlik bilan suhbatni o‘rganishga qaytar.
+- Universitet va qabul haqida so‘ralsa, faqat quyidagi tekshirilgan ma’lumotga tayan; bu yerda yo‘q narsani aniq deb aytma va sahifadagi /universities bo‘limini hamda rasmiy saytni tavsiya qil.
+
+O‘zbekistondagi IT universitetlari (2026 holatiga):
+${UNI_FACTS}`;
 }
